@@ -1,0 +1,39 @@
+---
+### Juniper Backup ###
+- hosts: juniper
+  connection: local
+  gather_facts: yes
+  vars:
+    dest_path: "/root/{{ datacenter }}"
+    folder: "{{ dest_path }}/{{ inventory_hostname }}/{{ ansible_date_time.date }}"
+    filename: "{{ folder }}/backup_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.yaml"
+    latest_file: "{{ dest_path }}/{{ inventory_hostname }}/latest/latest.yaml"
+
+  tasks:
+    - name: Creating backup folder if it does not exist
+      file:
+        path: "{{ folder }}"
+        mode: 0775
+        owner: root
+        group: root
+        state: directory
+      delegate_to: localhost
+
+    - name: Backing up Junipers' committed config
+      juniper.device.config:
+        retrieve: "committed"
+        diff: false
+        check: false
+        commit: false
+        format: "set"
+
+      register: response
+
+    - name: "Print result"
+      ansible.builtin.debug:
+        var: response
+
+    - name: Saving the Juniper backups to local directory
+      copy:
+        content: '{{ response.config_lines }}'
+        dest: "{{ filename }}"

@@ -1,0 +1,20 @@
+---
+juniper:
+  hosts:
+    ISP-RTR-2:
+      datacenter: DC01
+      ansible_host: 10.10.10.1
+      user: "juniper-username"
+      passwd: "juniper-password"
+    ISP-RTR-1:
+      datacenter: DC02
+      ansible_host: 10.10.20.1
+      user: "juniper-username"
+      passwd: "juniper-password"
+    BB-RTR-1:
+      datacenter: DC03
+      ansible_host: 10.10.30.1
+      user: "juniper-username"
+      passwd: "juniper-password"
+
+
