@@ -120,6 +120,16 @@ It backs up all VDOMs on the Juniper. If desired, you can filter specific VDOMs 
 - Update the email addresses and SMTP server details in the plugin as needed.
 - Ensure that the callback plugin is placed in the `callback_plugins` directory and that Ansible is configured to use it.
 
+### Example Email Output
+
+~~~
+Starting task: Backing up Junipers' committed config
+Task succeeded on RACK-O1-ISP-RTR-1: Backing up Junipers' committed config
+Task succeeded on RACK-O1-ISP-RTR-2: Backing up Junipers' committed config
+Task succeeded on RTR-1: Backing up Junipers' committed config
+Task succeeded on RTR-2: Backing up Junipers' committed config
+~~~
+
 ## Security Considerations
 
 - Ensure that sensitive information such as passwords and API keys are managed securely, using Ansible Vault or environment variables.

@@ -26,7 +26,6 @@
         check: false
         commit: false
         format: "set"
-
       register: response
 
     - name: "Print result"
