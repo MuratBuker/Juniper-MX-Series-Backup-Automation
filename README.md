@@ -1,6 +1,11 @@
 # Introduction
 
-If you have several Juniper routers, you may want to back up their configurations regularly. This repository contains an Ansible playbook that automates the backup process for Juniper devices.
+If you have several Juniper routers, you may want to back up their configurations regularly. This repository contains an Ansible playbook that automates the backup process for Juniper devices. I'm sharing in case someone out there looking for a starting point like me before.
+
+Ansible is using juniper.device.config module so this playbook is not limited to MX series but also can work for other seris which are using JunOS. But not tried before.
+
+Feel free to fork, give feedback, leave a comment. Have fun.
+
 
 ## Prerequisites
 
